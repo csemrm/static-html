@@ -34,7 +34,12 @@ $cfg['Servers'][$i]['host'] = 'dbserver.dev.edc2685d-d7f7-43af-b75a-ef9cb8ed8159
 //$cfg['Servers'][$i]['port'] = '22380';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
-$cfg['Servers'][$i]['ssl'] = true;
+$cfg['Servers'][$i]['auth_type'] = 'cookie';
+/* Server parameters */
+$cfg['Servers'][$i]['host'] = 'localhost';
+$cfg['Servers'][$i]['compress'] = false;
+$cfg['Servers'][$i]['AllowNoPassword'] = false;
+
 
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     $cfg['TempDir'] = $_SERVER['HOME'] . '/tmp';
