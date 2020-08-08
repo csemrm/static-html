@@ -1,4 +1,5 @@
 <?php
+
 /* vim: set expandtab sw=4 ts=4 sts=4: */
 /**
  * phpMyAdmin sample configuration, you can use it as base for
@@ -27,17 +28,21 @@ $i = 0;
  */
 $i++;
 /* Authentication type */
-$cfg['Servers'][$i]['auth_type'] = 'cookie';
+$cfg['Servers'][$i]['auth_type'] = 'config';
 /* Server parameters */
-$cfg['Servers'][$i]['host'] = 'dbserver.dev.edc2685d-d7f7-43af-b75a-ef9cb8ed8159.drush.in';
-$cfg['Servers'][$i]['port'] = '22380';
+$cfg['Servers'][$i]['host'] = 'dbserver.dev.edc2685d-d7f7-43af-b75a-ef9cb8ed8159.drush.in:22380';
+//$cfg['Servers'][$i]['port'] = '22380';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
-$cfg['Servers'][$i]['ssl']= true;
+$cfg['Servers'][$i]['ssl'] = true;
+
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+    $cfg['TempDir'] = $_SERVER['HOME'] . '/tmp';
+}
+
 /**
  * phpMyAdmin configuration storage settings.
  */
-
 /* User used to manipulate with storage */
 // $cfg['Servers'][$i]['controlhost'] = '';
 // $cfg['Servers'][$i]['controlport'] = '';
@@ -69,7 +74,6 @@ $cfg['Servers'][$i]['ssl']= true;
 /**
  * End of servers configuration
  */
-
 /**
  * Directories for saving/loading files from server
  */
